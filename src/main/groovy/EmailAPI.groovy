@@ -6,7 +6,7 @@ class EmailAPI {
         this.jenkins = jenkins
     }
 
-    def sendEmail() {
+    String sendEmail() {
         String responseText = jenkins.sh(returnStdout: true, script: """
             curl --request POST '$baseUrl' \\
                  --header 'Content-Type: application/json' \\
