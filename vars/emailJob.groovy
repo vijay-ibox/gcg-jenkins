@@ -1,3 +1,5 @@
+import main.groovy.EmailAPI
+
 def call() {
   EmailAPI emailAPI = new EmailAPI(this)
   println "Calling emailAPI Class"
