@@ -1,6 +1,7 @@
+import org.fox.jenkins.EmailAPI
+
 def call() {
-  EmailAPI emailAPI = new EmailAPI(this)
-  println "Calling emailAPI Class"
-  emailAPI.sendEmail()
-  println "Successfully triggered"
+    def emailAPI = new EmailAPI()
+    emailAPI.emailCall()
+    println("Test")
 }
