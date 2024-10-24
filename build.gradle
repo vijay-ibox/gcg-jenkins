@@ -1,8 +1,9 @@
 plugins {
+    id 'java'
     id 'groovy'
 }
 
-group 'org.example'
+group 'org.fox.jenkins'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -10,9 +11,29 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.apache.groovy:groovy:4.0.14'
+//    implementation 'org.apache.groovy:groovy:4.0.14'
+    implementation 'org.codehaus.groovy:groovy-all:3.0.9'
+    implementation 'org.yaml:snakeyaml:2.0'
+    implementation 'com.cloudbees:groovy-cps:1.1'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+sourceSets {
+    main {
+        groovy {
+            srcDirs = []
+        }
+        groovy {
+            // all code files will be in either of the folders
+            srcDirs = ['src', 'vars']
+        }
+    }
+    test {
+        groovy {
+            srcDir 'test'
+        }
+    }
 }
 
 test {
