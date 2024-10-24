@@ -3,10 +3,15 @@
 package org.fox.jenkins
 
 class EmailAPI {
+    private jenkins
+
+    EmailAPI(jenkins) {
+        this.jenkins = jenkins
+    }
 
     String sendEmail() {
         // Your email sending logic here using JavaMail or another library
-        println("sendEmail method called")
+        jenkins.println("sendEmail method called")
         return "return sendEmail method"
     }
 }
