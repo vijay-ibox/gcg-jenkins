@@ -6,7 +6,8 @@ class EmailAPI {
 
     String sendEmail() {
         // Your email sending logic here using JavaMail or another library
-        return "Sending email to"
+        println("sendEmail method called")
+        return "return sendEmail method"
     }
 }
 
