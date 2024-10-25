@@ -45,12 +45,12 @@ class EmailAPI {
 
         if (responseCode == HttpURLConnection.HTTP_OK) {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()))
-//            String inputLine
+            String inputLine
             StringBuffer response = new StringBuffer()
 
-//            while ((inputLine = in.readLine()) != null) {
-//                response.append(inputLine)
-//            }
+            while ((inputLine = bufferedReader.readLine()) != null) {
+                response.append(inputLine)
+            }
             bufferedReader.close()
 
             // Print the response
