@@ -37,22 +37,20 @@ class EmailAPI {
 //        """)
 //
 //        jenkins.println(responseText)
-        return triggerApi("https://api.restful-api.dev/objects")
+        return triggerApi("https://api.restful-api.dev/objects", "Apple")
     }
 
-    String triggerApi(String apiUrl) {
-//        String data_to_send = "{\n" +
-//                "   \"name\": \"Apple MacBook Pro 16\",\n" +
-//                "   \"data\": {\n" +
-//                "      \"year\": 2019,\n" +
-//                "      \"price\": 1849.99,\n" +
-//                "      \"CPU model\": \"Intel Core i9\",\n" +
-//                "      \"Hard disk size\": \"1 TB\"\n" +
-//                "   }\n" +
-//                "}";
-        Map<String, String> data = new HashMap<>();
-        data.put("name","Apple MacBook Pro 16");
-        
+    String triggerApi(String apiUrl, String value1) {
+        String data_to_send = "{\n" +
+                "   \"name\": value1,\n" +
+                "   \"data\": {\n" +
+                "      \"year\": 2019,\n" +
+                "      \"price\": 1849.99,\n" +
+                "      \"CPU model\": \"Intel Core i9\",\n" +
+                "      \"Hard disk size\": \"1 TB\"\n" +
+                "   }\n" +
+                "}";
+
         URL url = new URL(apiUrl)
         HttpURLConnection connection = (HttpURLConnection) url.openConnection()
         connection.setRequestMethod("POST")
