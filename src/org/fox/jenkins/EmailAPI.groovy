@@ -4,6 +4,7 @@ package org.fox.jenkins
 
 import java.net.HttpURLConnection
 import java.net.URL
+import java.io.*
 
 class EmailAPI {
     private String baseUrl = "https://api.restful-api.dev/objects"
