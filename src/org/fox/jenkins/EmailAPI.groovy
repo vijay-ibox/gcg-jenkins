@@ -41,15 +41,18 @@ class EmailAPI {
     }
 
     String triggerApi(String apiUrl) {
-        String data_to_send = "{\n" +
-                "   \"name\": \"Apple MacBook Pro 16\",\n" +
-                "   \"data\": {\n" +
-                "      \"year\": 2019,\n" +
-                "      \"price\": 1849.99,\n" +
-                "      \"CPU model\": \"Intel Core i9\",\n" +
-                "      \"Hard disk size\": \"1 TB\"\n" +
-                "   }\n" +
-                "}";
+//        String data_to_send = "{\n" +
+//                "   \"name\": \"Apple MacBook Pro 16\",\n" +
+//                "   \"data\": {\n" +
+//                "      \"year\": 2019,\n" +
+//                "      \"price\": 1849.99,\n" +
+//                "      \"CPU model\": \"Intel Core i9\",\n" +
+//                "      \"Hard disk size\": \"1 TB\"\n" +
+//                "   }\n" +
+//                "}";
+        Map<String, String> data = new HashMap<>();
+        data.put("name","Apple MacBook Pro 16");
+        
         URL url = new URL(apiUrl)
         HttpURLConnection connection = (HttpURLConnection) url.openConnection()
         connection.setRequestMethod("POST")
@@ -58,7 +61,7 @@ class EmailAPI {
 //        connection.setRequestProperty("body",data_to_send)
         try {
             DataOutputStream os = new DataOutputStream(connection.getOutputStream())
-            os.writeBytes(data_to_send);
+            os.writeBytes(data.toString());
             os.flush();
         } catch (e) {
             println(e)
