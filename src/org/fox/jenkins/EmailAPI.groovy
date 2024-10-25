@@ -41,7 +41,7 @@ class EmailAPI {
         connection.setRequestProperty("Accept", "application/json")
 
         int responseCode = connection.getResponseCode()
-        echo ("Response Code: " + responseCode)
+        println("Response Code: " + responseCode)
 
         if (responseCode == HttpURLConnection.HTTP_OK) {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()))
