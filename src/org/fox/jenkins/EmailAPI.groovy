@@ -48,11 +48,11 @@ class EmailAPI {
         HttpURLConnection connection = (HttpURLConnection) url.openConnection()
         connection.setRequestMethod("GET")
         connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded")
-        connection.setRequestProperty("body",data_to_send)
-//        try (DataOutputStream os = new DataOutputStream(connection.getOutputStream())) {
-//            os.writeBytes(data_to_send);
-//            os.flush();
-//        }
+//        connection.setRequestProperty("body",data_to_send)
+        try (DataOutputStream os = new DataOutputStream(connection.getOutputStream())) {
+            os.writeBytes(data_to_send);
+            os.flush();
+        }
 
         int responseCode = connection.getResponseCode()
         println("Response Code: " + responseCode)
