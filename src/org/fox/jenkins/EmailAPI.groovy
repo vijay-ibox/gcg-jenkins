@@ -56,9 +56,12 @@ class EmailAPI {
         connection.setDoOutput(true)
         connection.setRequestProperty("Content-Type", "application/json")
 //        connection.setRequestProperty("body",data_to_send)
-        try (DataOutputStream os = new DataOutputStream(connection.getOutputStream())) {
+        try {
+            DataOutputStream os = new DataOutputStream(connection.getOutputStream())
             os.writeBytes(data_to_send);
             os.flush();
+        } catch (e) {
+            println(e)
         }
 
         int responseCode = connection.getResponseCode()
