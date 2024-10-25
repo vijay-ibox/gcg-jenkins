@@ -2,9 +2,14 @@
  // Replace with your desired package
 package org.fox.jenkins
 
-import java.net.HttpURLConnection
-import java.net.URL
-import java.io.*
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 
 class EmailAPI {
     private String baseUrl = "https://api.restful-api.dev/objects"
