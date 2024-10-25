@@ -47,8 +47,9 @@ class EmailAPI {
                 "}";
         URL url = new URL(apiUrl)
         HttpURLConnection connection = (HttpURLConnection) url.openConnection()
-        connection.setRequestMethod("GET")
-        connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded")
+        connection.setRequestMethod("POST")
+        connection.setDoOutput(true)
+        connection.setRequestProperty("Content-Type", "application/json")
 //        connection.setRequestProperty("body",data_to_send)
         try (DataOutputStream os = new DataOutputStream(connection.getOutputStream())) {
             os.writeBytes(data_to_send);
