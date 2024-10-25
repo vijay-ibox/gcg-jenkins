@@ -4,7 +4,7 @@ package org.fox.jenkins
 
 class EmailAPI {
     private String baseUrl  = "https://api.restful-api.dev/objects"
-    private jenkins
+    def jenkins
 
     EmailAPI(jenkins) {
         this.jenkins = jenkins
