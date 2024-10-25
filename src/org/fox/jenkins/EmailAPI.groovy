@@ -35,10 +35,24 @@ class EmailAPI {
     }
 
     String triggerApi(String apiUrl) {
+        String data_to_send = "{\n" +
+                "   \"name\": \"Apple MacBook Pro 16\",\n" +
+                "   \"data\": {\n" +
+                "      \"year\": 2019,\n" +
+                "      \"price\": 1849.99,\n" +
+                "      \"CPU model\": \"Intel Core i9\",\n" +
+                "      \"Hard disk size\": \"1 TB\"\n" +
+                "   }\n" +
+                "}";
         URL url = new URL(apiUrl)
         HttpURLConnection connection = (HttpURLConnection) url.openConnection()
         connection.setRequestMethod("GET")
-        connection.setRequestProperty("Accept", "application/json")
+        connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded")
+        connection.setRequestProperty("body",data_to_send)
+//        try (DataOutputStream os = new DataOutputStream(connection.getOutputStream())) {
+//            os.writeBytes(data_to_send);
+//            os.flush();
+//        }
 
         int responseCode = connection.getResponseCode()
         println("Response Code: " + responseCode)
