@@ -31,8 +31,7 @@ class EmailAPI {
 //        """)
 //
 //        jenkins.println(responseText)
-        triggerApi("https://api.restful-api.dev/objects")
-        return responseText
+        return triggerApi("https://api.restful-api.dev/objects")
     }
 
     String triggerApi(String apiUrl) {
