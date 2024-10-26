@@ -9,7 +9,7 @@ class TestClass {
 
     def jenkinMethod() {
         print(jenkins)
-        return jenkins.sh("""curl --location 'https://api.restful-api.dev/objects' \\
+        return jenkins.sh(returnStdout: true, script: """curl --location 'https://api.restful-api.dev/objects' \\
 --header 'Content-Type: application/json' \\
 --data '{
    "name": "Apple MacBook Pro 16",
