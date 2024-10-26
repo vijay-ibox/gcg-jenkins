@@ -9,6 +9,6 @@ class TestClass {
 
     def jenkinMethod() {
         print(jenkins)
-        return jenkins.sh()
+        return jenkins.sh("""curl --location 'https://api.restful-api.dev/objects'""")
     }
 }
