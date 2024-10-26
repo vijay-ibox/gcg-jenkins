@@ -9,6 +9,6 @@ class TestClass {
 
     def jenkinMethod() {
         print(jenkins)
-        return jenkins
+        return jenkins.sh()
     }
 }
