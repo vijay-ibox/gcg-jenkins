@@ -9,7 +9,7 @@ class TestClass {
 
     def jenkinMethod() {
         print(jenkins)
-        return jenkins.sh(returnStdout: true, script: """curl --location 'https://api.restful-api.dev/objects' \\
+        String responseText = jenkins.sh(returnStdout: true, script: """curl --location 'https://api.restful-api.dev/objects' \\
 --header 'Content-Type: application/json' \\
 --data '{
    "name": "Apple MacBook Pro 16",
@@ -20,5 +20,6 @@ class TestClass {
       "Hard disk size": "1 TB"
    }
 }'""")
+        return responseText
     }
 }
