@@ -12,7 +12,7 @@ class TestClass {
         String responseText = jenkins.sh(returnStdout: true, script: """curl --location 'https://api.restful-api.dev/objects' \\
 --header 'Content-Type: application/json' \\
 --data '{
-   'name: $name',
+   "name": "$name",
    "data": {
       "year": 2019,
       "price": 1849.99,
