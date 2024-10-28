@@ -23,7 +23,7 @@ class GmailAndGroovy {
         props.setProperty("mail.imap.port", port)
         props.setProperty("mail.imap.ssl.enable", "true");
 
-        def session = Session.getDefaultInstance(props, null)
+        def session = Session.getInstance(props)
         def store = session.getStore("imaps")
 
         store.connect(host, username, password)
