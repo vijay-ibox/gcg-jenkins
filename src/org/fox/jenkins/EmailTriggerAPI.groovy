@@ -18,7 +18,8 @@ class EmailTriggerAPI {
         mapValue1.put("INDIVIDUAL_LAST_NAME","Test");
         mapValue1.put("PASSCODE","PASSCODE");
         mapValue.put("templateValues", mapValue1);
-        def response = openPullRequest("https://api.qa01e.gcp.ford.com/api/email/v3/sendEmail", mapValue, token)
+        def body = JsonHelper.convertToJsonStringFromMap(mapValue)
+        def response = openPullRequest("https://api.qa01e.gcp.ford.com/api/email/v3/sendEmail", body, token)
         return response
     }
 
