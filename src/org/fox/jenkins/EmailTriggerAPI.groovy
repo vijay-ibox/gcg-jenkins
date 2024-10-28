@@ -29,6 +29,7 @@ class EmailTriggerAPI {
                     }
                 }'
         """)
-        return responseText
+        print(responseText)
+        def responseText
     }
 }
