@@ -29,9 +29,11 @@ class EmailTriggerAPI {
                     }
                 }'
         """)
+        echo responseText
+        jenkins.println("Response1" + response)
         def response = JsonHelper.parse(responseText)
-        print(response)
-        jenkins.println(response)
+        print("Response" + response)
+        jenkins.println("Response1" + response)
         return responseText
     }
 }
