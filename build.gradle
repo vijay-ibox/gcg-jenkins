@@ -15,6 +15,9 @@ dependencies {
     implementation 'org.codehaus.groovy:groovy-all:3.0.9'
     implementation 'org.yaml:snakeyaml:2.0'
     implementation 'com.cloudbees:groovy-cps:1.1'
+    implementation 'javax.mail:javax.mail-api:1.6.2'
+    implementation 'com.sun.mail:imap:1.6.0'
+    implementation 'com.sun.mail:javax.mail:1.6.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
