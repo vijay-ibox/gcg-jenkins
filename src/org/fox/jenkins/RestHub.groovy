@@ -20,7 +20,7 @@ class RestHub implements Serializable {
             this.response = connection.content.text
         } else {
             this.failure = true
-            this.response = connection.getErrorStream().text
+            this.response = connection.getErrorStream().toString()
         }
         return this
     }
