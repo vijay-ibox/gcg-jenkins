@@ -54,8 +54,10 @@ class GmailAndGroovy {
             println "***************************************************"
             println "***************************************************"
         }
+            return "try block"
         } catch (e) {
             println(e)
+            return "catch block"
         }
     }
 }
