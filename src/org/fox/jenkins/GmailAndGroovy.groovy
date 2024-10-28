@@ -22,8 +22,8 @@ class GmailAndGroovy {
         props.setProperty("mail.imap.host", host)
         props.setProperty("mail.imap.port", port)
         props.setProperty("mail.imap.ssl.enable", "true");
-
-        def session = Session.getInstance(props)
+        try {
+        def session = Session.getDefaultInstance(props);
         def store = session.getStore("imaps")
 
         store.connect(host, username, password)
@@ -53,6 +53,9 @@ class GmailAndGroovy {
 //            msgs[i].writeTo(System.out)
             println "***************************************************"
             println "***************************************************"
+        }
+        } catch (e) {
+            println(e)
         }
     }
 }
