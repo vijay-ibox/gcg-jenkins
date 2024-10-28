@@ -9,7 +9,7 @@ class EmailTriggerAPI {
 
     def sendEmail(String token, String emailAddress) {
         print(jenkins)
-        String responseText = jenkins.sh(returnStdout: true, script: """
+        def responseText = jenkins.sh(returnStdout: true, script: """
         curl --location 'https://api.qa01e.gcp.ford.com/api/email/v3/sendEmail' \\
             --header 'Content-Type: application/json' \\
             --header 'Authorization: $token' \\
@@ -29,7 +29,9 @@ class EmailTriggerAPI {
                     }
                 }'
         """)
-        print(responseText)
-        def responseText
+        def response = JsonHelper.parse(responseText)
+        print(response)
+        jenkins.println(response)
+        return responseText
     }
 }
