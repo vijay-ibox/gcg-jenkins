@@ -29,6 +29,7 @@ class EmailTriggerAPI {
                     }
                 }'
         """)
-        return responseText
+        def response = JsonHelper.parse(responseText)
+        return response
     }
 }
