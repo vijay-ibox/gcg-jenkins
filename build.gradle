@@ -18,7 +18,6 @@ dependencies {
     implementation 'javax.mail:javax.mail-api:1.6.2'
     implementation 'com.sun.mail:imap:1.6.0'
     implementation 'com.sun.mail:javax.mail:1.6.2'
-    implementation 'com.sun.activation:jakarta.activation:1.2.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
