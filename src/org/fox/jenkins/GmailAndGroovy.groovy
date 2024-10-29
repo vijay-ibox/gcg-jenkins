@@ -1,8 +1,7 @@
 package org.fox.jenkins
 
-import javax.mail.*
-import javax.mail.internet.*;
-import javax.mail.search.*;
+import jakarta.mail.*;
+import jakarta.mail.search.FlagTerm;
 
 class GmailAndGroovy {
     def jenkins
