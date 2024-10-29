@@ -39,20 +39,20 @@ class GmailAndGroovy {
         folder.fetch(msgs,fetchProfile)
 //
         def mapValue = new HashMap();
-        for ( i in 0..(msgs.length -1) ) {
-            println "***************************************************"
-            println "***************************************************"
-            mapValue.put("receivedDate", ${msgs[i].receivedDate})
-            mapValue.put("from", ${msgs[i].from})
-            mapValue.put("subject", ${msgs[i].subject})
-            println"${msgs[i].receivedDate}"
-//            println "${msgs[i].sender}"
-            println "${msgs[i].from}"
-            println "${msgs[i].subject}"
-//            msgs[i].writeTo(System.out)
-            println "***************************************************"
-            println "***************************************************"
-        }
+//        for ( i in 0..(msgs.length -1) ) {
+//            println "***************************************************"
+//            println "***************************************************"
+//            mapValue.put("receivedDate", ${msgs[i].receivedDate})
+//            mapValue.put("from", ${msgs[i].from})
+//            mapValue.put("subject", ${msgs[i].subject})
+//            println"${msgs[i].receivedDate}"
+////            println "${msgs[i].sender}"
+//            println "${msgs[i].from}"
+//            println "${msgs[i].subject}"
+////            msgs[i].writeTo(System.out)
+//            println "***************************************************"
+//            println "***************************************************"
+//        }
             return "try block"
         } catch (e) {
             println(e)
