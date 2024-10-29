@@ -34,16 +34,16 @@ class GmailAndGroovy {
 
         folder.open(Folder.READ_ONLY)
 
-//        Flags seen = new Flags(Flags.Flag.SEEN);
-//        FlagTerm unseenFlagTerm = new FlagTerm(seen, false);
+        Flags seen = new Flags(Flags.Flag.SEEN);
+        FlagTerm unseenFlagTerm = new FlagTerm(seen, false);
 //            SearchTerm searchTermTime = new ReceivedDateTerm(DateTerm.EQ, oneHourBack);
-            SearchTerm searchTermFlag = new FlagTerm(new Flags(Flags.Flag.SEEN), false);
-            SearchTerm searchTermSubject = new SubjectTerm("Jenkins");
-            SearchTerm[] arr = new SearchTerm[]{searchTermFlag, searchTermSubject};
+//            SearchTerm searchTermFlag = new FlagTerm(new Flags(Flags.Flag.SEEN), false);
+//            SearchTerm searchTermSubject = new SubjectTerm("Jenkins");
+//            SearchTerm[] arr = new SearchTerm[]{searchTermFlag, searchTermSubject};
 //searchTerm.match(searchTermFt);
-            SearchTerm searchTerm = new AndTerm(arr);
+//            SearchTerm searchTerm = new AndTerm(arr);
 
-        Message[] msgs = folder.search(searchTerm);
+        Message[] msgs = folder.search(unseenFlagTerm);
 //
         FetchProfile fetchProfile = new FetchProfile()
         fetchProfile.add(FetchProfile.Item.ENVELOPE)
