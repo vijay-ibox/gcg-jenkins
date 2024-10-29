@@ -39,7 +39,7 @@ class GmailAndGroovy {
         folder.fetch(msgs,fetchProfile)
 //
         def mapValue = new HashMap();
-        for ( i in 0..2 ) {
+        for ( test in msgs ) {
 //            mapValue.put("receivedDate", ${msgs[i].receivedDate})
 //            mapValue.put("from", ${msgs[i].from})
 //            mapValue.put("subject", ${msgs[i].subject})
@@ -48,7 +48,7 @@ class GmailAndGroovy {
 //            println "${msgs[i].from}"
 //            println "${msgs[i].subject}"
 //            msgs[i].writeTo(System.out)
-            mapValue.put(i,"test")
+            mapValue.put("message",test.getSubject())
         }
             return mapValue
         } catch (e) {
