@@ -3,7 +3,6 @@ package org.fox.jenkins
 import jakarta.mail.*
 import jakarta.mail.search.AndTerm;
 import jakarta.mail.search.FlagTerm
-import jakarta.mail.search.ReceivedDateTerm
 import jakarta.mail.search.SearchTerm
 import jakarta.mail.search.SubjectTerm;
 
@@ -36,14 +35,14 @@ class GmailAndGroovy {
 
         Flags seen = new Flags(Flags.Flag.SEEN);
         FlagTerm unseenFlagTerm = new FlagTerm(seen, false);
-//            SearchTerm searchTermTime = new ReceivedDateTerm(DateTerm.EQ, oneHourBack);
-//            SearchTerm searchTermFlag = new FlagTerm(new Flags(Flags.Flag.SEEN), false);
-//            SearchTerm searchTermSubject = new SubjectTerm("Jenkins");
-//            SearchTerm[] arr = new SearchTerm[]{searchTermFlag, searchTermSubject};
+            SearchTerm searchTermFlag = new FlagTerm(new Flags(Flags.Flag.SEEN), false);
+            SearchTerm searchTermSubject = new SubjectTerm("Jenkins");
+            SearchTerm[] arr = new SearchTerm[]{searchTermFlag, searchTermSubject};
 //searchTerm.match(searchTermFt);
-//            SearchTerm searchTerm = new AndTerm(arr);
+            SearchTerm searchTerm = new AndTerm(arr);
 
-        Message[] msgs = folder.search(unseenFlagTerm);
+
+        Message[] msgs = folder.search(searchTerm);
 //
         FetchProfile fetchProfile = new FetchProfile()
         fetchProfile.add(FetchProfile.Item.ENVELOPE)
