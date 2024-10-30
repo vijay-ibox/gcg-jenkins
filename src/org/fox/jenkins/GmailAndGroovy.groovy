@@ -50,7 +50,7 @@ class GmailAndGroovy {
         folder.fetch(msgs,fetchProfile)
 //
         def listValue = new ArrayList();
-        for ( test in msgs ) {
+        for ( msgVal in msgs ) {
 //            mapValue.put("receivedDate", ${msgs[i].receivedDate})
 //            mapValue.put("from", ${msgs[i].from})
 //            mapValue.put("subject", ${msgs[i].subject})
@@ -59,7 +59,8 @@ class GmailAndGroovy {
 //            println "${msgs[i].from}"
 //            println "${msgs[i].subject}"
 //            msgs[i].writeTo(System.out)
-            listValue.add(test.getSubject())
+            listValue.add(msgVal.getSubject())
+            msgVal.setFlag(Flags.Flag.SEEN, true)
         }
             return listValue
         } catch (e) {
