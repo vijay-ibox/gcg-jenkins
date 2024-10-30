@@ -61,7 +61,7 @@ class GmailAndGroovy {
 //            msgs[i].writeTo(System.out)
             listValue.add(test.getSubject())
         }
-            return mapValue
+            return listValue
         } catch (e) {
             println(e)
             return e
