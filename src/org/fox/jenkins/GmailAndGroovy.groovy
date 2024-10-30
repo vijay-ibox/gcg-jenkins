@@ -63,7 +63,10 @@ class GmailAndGroovy {
             msgVal.setFlag(Flags.Flag.SEEN, true)
 //            msgVal.flags
         }
-            return listValue
+            if(listValue.size() > 0) {
+                return "true"
+            }
+            return "false"
         } catch (e) {
             println(e)
             return e
