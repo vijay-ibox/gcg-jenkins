@@ -37,7 +37,7 @@ class GmailAndGroovy {
         FlagTerm unseenFlagTerm = new FlagTerm(seen, false);
             SearchTerm searchTermFlag = new FlagTerm(new Flags(Flags.Flag.SEEN), false);
             SearchTerm searchTermSubject = new SubjectTerm("Jenkins");
-            SearchTerm[] arr = new SearchTerm[]{searchTermFlag, searchTermSubject};
+            SearchTerm[] arr = new SearchTerm[]{searchTermSubject};
 ////searchTerm.match(searchTermFt);
             SearchTerm searchTerm = new AndTerm(arr);
 
