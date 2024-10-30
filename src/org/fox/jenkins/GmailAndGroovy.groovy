@@ -36,7 +36,7 @@ class GmailAndGroovy {
         Flags seen = new Flags(Flags.Flag.SEEN);
         FlagTerm unseenFlagTerm = new FlagTerm(seen, false);
             SearchTerm searchTermFlag = new FlagTerm(new Flags(Flags.Flag.SEEN), false);
-            SearchTerm searchTermSubject = new SubjectTerm("Your access to Connected Services has expired");
+            SearchTerm searchTermSubject = new SubjectTerm("Jenkins");
 //            SearchTerm[] arr = new SearchTerm[]{searchTermFlag, searchTermSubject};
             SearchTerm[] arr = [searchTermFlag, searchTermSubject]
 ////searchTerm.match(searchTermFt);
