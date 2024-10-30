@@ -31,7 +31,7 @@ class GmailAndGroovy {
         store.connect(host, username, password)
         def folder = store.getFolder("INBOX")
 
-        folder.open(Folder.READ_ONLY)
+        folder.open(Folder.READ_WRITE)
 
         Flags seen = new Flags(Flags.Flag.SEEN);
         FlagTerm unseenFlagTerm = new FlagTerm(seen, false);
