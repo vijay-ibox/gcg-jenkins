@@ -60,12 +60,13 @@ class GmailAndGroovy {
 //            println "${msgs[i].subject}"
 //            msgs[i].writeTo(System.out)
             listValue.add(msgVal.getSubject())
-//            msgVal.setFlag(Flags.Flag.SEEN, true)
+            msgVal.setFlag(Flags.Flag.SEEN, true)
+//            msgVal.flags
         }
             return listValue
         } catch (e) {
             println(e)
-            return e
+            return "Catch block"
         }
     }
 }
