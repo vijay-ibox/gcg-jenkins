@@ -66,7 +66,7 @@ class GmailAndGroovy {
             return listValue
         } catch (e) {
             println(e)
-            return "Catch block"
+            return e
         }
     }
 }
