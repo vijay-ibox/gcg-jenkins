@@ -60,7 +60,7 @@ class GmailAndGroovy {
 //            println "${msgs[i].subject}"
 //            msgs[i].writeTo(System.out)
             listValue.add(msgVal.getSubject())
-            msgVal.setFlag(Flags.Flag.SEEN, true)
+//            msgVal.setFlag(Flags.Flag.SEEN, true)
         }
             return listValue
         } catch (e) {
