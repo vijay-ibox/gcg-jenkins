@@ -16,8 +16,8 @@ class GmailAndGroovy {
     def readEmail() {
         def host = "imap.gmail.com"
         def port = "993"
-        def username = "bpradeep272@gmail.com"
-        def password = "zvha hzai lvtn lbrd"
+        def username = "vijay.ibox@gmail.com"
+        def password = "xktj umqz wpxl qjio"
 
         Properties props = new Properties()
         props.setProperty("mail.store.protocol", "imaps")
