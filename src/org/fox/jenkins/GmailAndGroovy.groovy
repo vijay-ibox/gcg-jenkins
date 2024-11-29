@@ -56,8 +56,8 @@ class GmailAndGroovy {
         }
             return listValue
         } catch (e) {
-            println(e)
-            listValue.add(e)
+            println(e.message)
+            listValue.add(e.message)
             return listValue
         }
     }
