@@ -24,6 +24,7 @@ class GmailAndGroovy {
         props.setProperty("mail.imap.host", host)
         props.setProperty("mail.imap.port", port)
         props.setProperty("mail.imap.ssl.enable", "true");
+        def listValue = new ArrayList<>();
         try {
         def session = Session.getDefaultInstance(props);
         def store = session.getStore("imaps")
@@ -34,7 +35,7 @@ class GmailAndGroovy {
         folder.open(Folder.READ_WRITE)
 
         Flags seen = new Flags(Flags.Flag.SEEN);
-        FlagTerm unseenFlagTerm = new FlagTerm(seen, false);
+        FlagTerm unseenFlagTerm = new FlagTerm(seen, false); 
             SearchTerm searchTermFlag = new FlagTerm(new Flags(Flags.Flag.SEEN), false);
             SearchTerm searchTermSubject = new SubjectTerm("Your access to Connected Services has expired");
 //            SearchTerm[] arr = new SearchTerm[]{searchTermFlag, searchTermSubject};
@@ -43,33 +44,20 @@ class GmailAndGroovy {
             SearchTerm searchTerm = new AndTerm(arr);
 
 
-        Message[] msgs = folder.search(searchTerm);
-//
+        Message[] msgValue = folder.search(searchTerm);
         FetchProfile fetchProfile = new FetchProfile()
         fetchProfile.add(FetchProfile.Item.ENVELOPE)
-        folder.fetch(msgs,fetchProfile)
-//
-        def listValue = new ArrayList();
-        for ( msgVal in msgs ) {
-//            mapValue.put("receivedDate", ${msgs[i].receivedDate})
-//            mapValue.put("from", ${msgs[i].from})
-//            mapValue.put("subject", ${msgs[i].subject})
-//            println"${msgs[i].receivedDate}"
-////            println "${msgs[i].sender}"
-//            println "${msgs[i].from}"
-//            println "${msgs[i].subject}"
-//            msgs[i].writeTo(System.out)
-            listValue.add(msgVal.getSubject())
+        folder.fetch(msgValue,fetchProfile)
+        for ( msgVal in msgValue ) {
+            mapValue.add("receivedDate : " + msgVal.getReceivedDate())
+            mapValue.add("from : " + msgVal.getFrom()[0])
+            mapValue.add("subject : " + msgVal.getSubject())
             msgVal.setFlag(Flags.Flag.SEEN, true)
-//            msgVal.flags
         }
-            if(listValue.size() > 0) {
-                return "true"
-            }
-            return "false"
+            return listValue
         } catch (e) {
             println(e)
-            return e
+            return listValue
         }
     }
 }
