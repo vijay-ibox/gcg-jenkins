@@ -35,7 +35,7 @@ class GmailAndGroovy {
         folder.open(Folder.READ_WRITE)
 
         Flags seen = new Flags(Flags.Flag.SEEN);
-        FlagTerm unseenFlagTerm = new FlagTerm(seen, false); 
+        FlagTerm unseenFlagTerm = new FlagTerm(seen, false);
             SearchTerm searchTermFlag = new FlagTerm(new Flags(Flags.Flag.SEEN), false);
             SearchTerm searchTermSubject = new SubjectTerm("Your access to Connected Services has expired");
 //            SearchTerm[] arr = new SearchTerm[]{searchTermFlag, searchTermSubject};
@@ -49,14 +49,15 @@ class GmailAndGroovy {
         fetchProfile.add(FetchProfile.Item.ENVELOPE)
         folder.fetch(msgValue,fetchProfile)
         for ( msgVal in msgValue ) {
-            mapValue.add("receivedDate : " + msgVal.getReceivedDate())
-            mapValue.add("from : " + msgVal.getFrom()[0])
-            mapValue.add("subject : " + msgVal.getSubject())
+            listValue.add("receivedDate : " + msgVal.getReceivedDate())
+            listValue.add("from : " + msgVal.getFrom()[0])
+            listValue.add("subject : " + msgVal.getSubject())
             msgVal.setFlag(Flags.Flag.SEEN, true)
         }
             return listValue
         } catch (e) {
-            echo e
+            println(e)
+            listValue.add(e)
             return listValue
         }
     }
