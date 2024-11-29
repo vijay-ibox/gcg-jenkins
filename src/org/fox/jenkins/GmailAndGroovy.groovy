@@ -54,11 +54,11 @@ class GmailAndGroovy {
             listValue.add("subject : " + msgVal.getSubject())
             msgVal.setFlag(Flags.Flag.SEEN, true)
         }
-            return listValue.toString()
+            return "Success output" + listValue.toString()
         } catch (e) {
             println(e.message)
             listValue.add(e.message)
-            return listValue.toString()
+            return "Failed output" + listValue.toString()
         }
     }
 }
