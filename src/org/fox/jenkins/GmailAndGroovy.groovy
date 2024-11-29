@@ -54,12 +54,12 @@ class GmailAndGroovy {
             responseValue.put("subject : " , msgVal.getSubject())
             msgVal.setFlag(Flags.Flag.SEEN, true)
         }
-            def response = JsonHelper.parse(responseText)
+            def response = JsonHelper.parse(responseValue)
             return "Success output" + response.toString()
         } catch (e) {
             println(e.message)
             listValue.add(e.message)
-            return "Failed output" + response.toString()
+            return "Failed output"
         }
     }
 }
