@@ -56,7 +56,7 @@ class GmailAndGroovy {
         }
             return listValue
         } catch (e) {
-            println(e)
+            echo e
             return listValue
         }
     }
