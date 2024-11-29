@@ -1,7 +1,10 @@
 import org.fox.jenkins.GmailAndGroovy
 
 def call() {
-    def test = new GmailAndGroovy(this)
-//    println(test.readEmail());
-    return test.readEmail()
+    def gmailAndGroovy = new GmailAndGroovy(this)
+    if(gmailAndGroovy.readEmail().size() > 0) {
+        println(gmailAndGroovy.readEmail())
+        return "true"
+    }
+    return "false"
 }
