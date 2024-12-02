@@ -3,7 +3,7 @@ package org.fox.jenkins
 class EmailTestAPI {
 
     def sendTestEmail(String requestUrl, String token, String templateName, String emailAddress, String countryCode, String languageCode) {
-        return callAPI(requestUrl, token, emailAddress, countryCode, languageCode)
+        return callAPI(requestUrl, token, templateName, emailAddress, countryCode, languageCode)
     }
 
     def callAPI(requestUrl, token, templateName, emailAddress, countryCode, languageCode) {
@@ -32,7 +32,7 @@ class EmailTestAPI {
 
     static def getRequestBody(templateName, emailAddress, countryCode, languageCode) {
         Map<String, Object> mapValue = new HashMap<>();
-        mapValue.put("templateId",templateName);
+        mapValue.put("templateId","eaas-ford-f150-ssp-na-subscription-expired");
         mapValue.put("emailAddress",emailAddress);
         Map<String, String> templateValues = new HashMap<>();
         templateValues.put("COUNTRY_CODE",countryCode);
