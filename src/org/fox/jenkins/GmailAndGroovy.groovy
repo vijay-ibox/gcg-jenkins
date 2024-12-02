@@ -49,9 +49,9 @@ class GmailAndGroovy {
         fetchProfile.add(FetchProfile.Item.ENVELOPE)
         folder.fetch(msgValue,fetchProfile)
         for ( msgVal in msgValue ) {
-            responseValue.put("receivedDate : " , msgVal.getReceivedDate())
-            responseValue.put("from : " , msgVal.getFrom()[0])
-            responseValue.put("subject : " , msgVal.getSubject())
+            responseValue.put("receivedDate : " , msgVal.getReceivedDate().toString())
+            responseValue.put("from : " , msgVal.getFrom()[0].toString())
+            responseValue.put("subject : " , msgVal.getSubject().toString())
             msgVal.setFlag(Flags.Flag.SEEN, true)
         }
             def response = JsonHelper.parse(responseValue)
@@ -59,7 +59,7 @@ class GmailAndGroovy {
         } catch (e) {
             println(e.message)
             listValue.add(e.message)
-            return "Failed output"
+            return responseValue
         }
     }
 }
