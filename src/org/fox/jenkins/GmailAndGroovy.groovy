@@ -43,7 +43,7 @@ class GmailAndGroovy {
             SearchTerm searchTermSubject1 = new SubjectTerm("Verify your account");
             SearchTerm searchTerm = new AndTerm(searchTermFlag,searchTermSubject);
             SearchTerm searchTerm1 = new AndTerm(searchTermFlag1,searchTermSubject1);
-            SearchTerm[] searchArray = new [searchTerm, searchTerm1]
+            SearchTerm[] searchArray = [searchTerm, searchTerm1]
             SearchTerm finalSearchTerm = new OrTerm(searchArray);
 
             Message[] msgValue = folder.search(finalSearchTerm);
