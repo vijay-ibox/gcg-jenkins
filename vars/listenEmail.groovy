@@ -5,10 +5,9 @@ def call() {
     def responseOutput = gmailAndGroovy.readEmail()
     def valLength = responseOutput.length()
     println("Response : ${responseOutput}")
-    println("Response lengt: ${valLength}")
-//    if(gmailAndGroovy.readEmail().length() > 0) {
-//        println("Response : " + gmailAndGroovy.readEmail())
-//        return "true"
-//    }
+    println("Response length: ${valLength}")
+    if(valLength > 2) {
+        return "true"
+    }
     return "false"
 }
