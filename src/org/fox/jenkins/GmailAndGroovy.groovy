@@ -3,6 +3,7 @@ package org.fox.jenkins
 import jakarta.mail.*
 import jakarta.mail.search.AndTerm;
 import jakarta.mail.search.FlagTerm
+import jakarta.mail.search.OrTerm
 import jakarta.mail.search.SearchTerm
 import jakarta.mail.search.SubjectTerm;
 
@@ -16,8 +17,8 @@ class GmailAndGroovy {
     def readEmail() {
         def host = "imap.gmail.com"
         def port = "993"
-        def username = "vijay.ibox@gmail.com"
-        def password = "xktj umqz wpxl qjio"
+        def username = "gcgap.info@gmail.com"
+        def password = "wihj djyl uvyj gtxt"
 
         Properties props = new Properties()
         props.setProperty("mail.store.protocol", "imaps")
@@ -37,16 +38,19 @@ class GmailAndGroovy {
             Flags seen = new Flags(Flags.Flag.SEEN);
             FlagTerm unseenFlagTerm = new FlagTerm(seen, false);
             SearchTerm searchTermFlag = new FlagTerm(new Flags(Flags.Flag.SEEN), false);
+            SearchTerm searchTermFlag1 = new FlagTerm(new Flags(Flags.Flag.SEEN), false);
             SearchTerm searchTermSubject = new SubjectTerm("Your access to Connected Services has expired");
-            SearchTerm[] arr = [searchTermFlag, searchTermSubject]
-////searchTerm.match(searchTermFt);
-            SearchTerm searchTerm = new AndTerm(arr);
+            SearchTerm searchTermSubject1 = new SubjectTerm("Verify your account");
+            SearchTerm searchTerm = new AndTerm(searchTermFlag,searchTermSubject);
+            SearchTerm searchTerm1 = new AndTerm(searchTermFlag1,searchTermSubject1);
+            SearchTerm[] arr1 = new SearchTerm[]{searchTerm, searchTerm1};
+            SearchTerm finalSearchTerm = new OrTerm(arr1);
 
-
-            Message[] msgValue = folder.search(searchTerm);
+            Message[] msgValue = folder.search(finalSearchTerm);
             FetchProfile fetchProfile = new FetchProfile()
             fetchProfile.add(FetchProfile.Item.ENVELOPE)
             folder.fetch(msgValue,fetchProfile)
+
             for ( msgVal in msgValue ) {
                 responseValue.add("receivedDate : " + msgVal.getReceivedDate().toString())
                 responseValue.add("from : " + msgVal.getFrom()[0].toString())
