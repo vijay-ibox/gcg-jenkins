@@ -6,9 +6,9 @@ def call() {
     builder.append(gmailAndGroovy.readEmail())
 //    println(builder.length())
 //    println(builder.length)
-    if(gmailAndGroovy.readEmail().length() > 0) {
-        println("Response : " + gmailAndGroovy.readEmail())
-        return "true"
-    }
+//    if(gmailAndGroovy.readEmail().length() > 0) {
+//        println("Response : " + gmailAndGroovy.readEmail())
+//        return "true"
+//    }
     return "false"
 }
