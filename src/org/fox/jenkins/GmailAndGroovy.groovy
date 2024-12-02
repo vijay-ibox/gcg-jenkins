@@ -58,9 +58,9 @@ class GmailAndGroovy {
                 msgVal.setFlag(Flags.Flag.SEEN, true)
             }
             return responseValue.toString()
-        } catch (e) {
-            println(e.message)
+        } catch (exception) {
+            jenkins.println(exception.message)
+            return exception
         }
-        return responseValue.toString()
     }
 }
