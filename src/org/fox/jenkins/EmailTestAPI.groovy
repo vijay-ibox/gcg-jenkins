@@ -2,12 +2,12 @@ package org.fox.jenkins
 
 class EmailTestAPI {
 
-    def sendTestEmail(String requestUrl, String token, String emailAddress, String countryCode, String languageCode) {
+    def sendTestEmail(String requestUrl, String token, String templateName, String emailAddress, String countryCode, String languageCode) {
         return callAPI(requestUrl, token, emailAddress, countryCode, languageCode)
     }
 
-    def callAPI(requestUrl, token, emailAddress, countryCode, languageCode) {
-        def body = getRequestBody(emailAddress, countryCode, languageCode)
+    def callAPI(requestUrl, token, templateName, emailAddress, countryCode, languageCode) {
+        def body = getRequestBody(templateName, emailAddress, countryCode, languageCode)
         def restHub = new RestHub()
         def data = makePostRequest(requestUrl, token, body)
         def message = restHub.parseResponse(data)
@@ -30,9 +30,9 @@ class EmailTestAPI {
         return headers
     }
 
-    static def getRequestBody(String emailAddress, String countryCode, String languageCode) {
+    static def getRequestBody(templateName, emailAddress, countryCode, languageCode) {
         Map<String, Object> mapValue = new HashMap<>();
-        mapValue.put("templateId","eaas-ford-f150-ssp-na-subscription-expired");
+        mapValue.put("templateId",templateName);
         mapValue.put("emailAddress",emailAddress);
         Map<String, String> templateValues = new HashMap<>();
         templateValues.put("COUNTRY_CODE",countryCode);
