@@ -57,7 +57,7 @@ class GmailAndGroovy {
             return "Success output" + responseValue.toString()
         } catch (e) {
             println(e.message)
+            return "Failed output : " + responseValue.toString()
         }
-        return "Failed output : " + responseValue.toString()
     }
 }
