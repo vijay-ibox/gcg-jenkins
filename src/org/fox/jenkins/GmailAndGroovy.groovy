@@ -14,11 +14,11 @@ class GmailAndGroovy {
         this.jenkins = jenkins
     }
 
-    def readEmail() {
+    def readEmail(String emailAddress, String emailPasscode, String searchSubject) {
         def host = "imap.gmail.com"
         def port = "993"
-        def username = "gcgap.info@gmail.com"
-        def password = "wihj djyl uvyj gtxt"
+        def username = emailAddress
+        def password = emailPasscode
 
         Properties props = new Properties()
         props.setProperty("mail.store.protocol", "imaps")
@@ -39,11 +39,14 @@ class GmailAndGroovy {
             FlagTerm unseenFlagTerm = new FlagTerm(seen, false);
             SearchTerm searchTermFlag = new FlagTerm(new Flags(Flags.Flag.SEEN), false);
             SearchTerm searchTermFlag1 = new FlagTerm(new Flags(Flags.Flag.SEEN), false);
+            SearchTerm searchTermFlag2 = new FlagTerm(new Flags(Flags.Flag.SEEN), false);
             SearchTerm searchTermSubject = new SubjectTerm("Your access to Connected Services has expired");
             SearchTerm searchTermSubject1 = new SubjectTerm("Verify your account");
+            SearchTerm searchTermSubject2 = new SubjectTerm(searchSubject);
             SearchTerm searchTerm = new AndTerm(searchTermFlag,searchTermSubject);
             SearchTerm searchTerm1 = new AndTerm(searchTermFlag1,searchTermSubject1);
-            SearchTerm[] searchArray = [searchTerm, searchTerm1]
+            SearchTerm searchTerm2 = new AndTerm(searchTermFlag2,searchTermSubject2);
+            SearchTerm[] searchArray = [searchTerm, searchTerm1, searchTerm2]
             SearchTerm finalSearchTerm = new OrTerm(searchArray);
 
             Message[] msgValue = folder.search(finalSearchTerm);
