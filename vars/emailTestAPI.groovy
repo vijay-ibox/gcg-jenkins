@@ -4,5 +4,5 @@ def call(String requestUrl, String token, String templateName, String emailAddre
     def emailTestAPI = new EmailTestAPI()
     def response = emailTestAPI.sendTestEmail(requestUrl, token, templateName, emailAddress, countryCode, languageCode)
     println(response)
-    return response[0]
+    return response[0].toString()
 }
