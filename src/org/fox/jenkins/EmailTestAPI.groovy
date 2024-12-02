@@ -7,7 +7,7 @@ class EmailTestAPI {
     }
 
     def callAPI(requestUrl, token, emailAddress, countryCode, languageCode) {
-        def body = getRequestBody(emailAddress, countryCode languageCode)
+        def body = getRequestBody(emailAddress, countryCode, languageCode)
         def restHub = new RestHub()
         def data = makePostRequest(requestUrl, token, body)
         def message = restHub.parseResponse(data)
