@@ -4,7 +4,7 @@ def call() {
     def gmailAndGroovy = new GmailAndGroovy(this)
     println(gmailAndGroovy.readEmail().length())
     if(gmailAndGroovy.readEmail().length() > 0) {
-        println("Email Ping Output" + gmailAndGroovy.readEmail())
+        println("Response : " + gmailAndGroovy.readEmail())
         return "true"
     }
     return "false"
