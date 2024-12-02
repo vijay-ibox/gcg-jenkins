@@ -32,14 +32,14 @@ class EmailTestAPI {
 
     static def getRequestBody(templateName, emailAddress, countryCode, languageCode) {
         Map<String, Object> mapValue = new HashMap<>();
-        mapValue.put("templateId","eaas-ford-f150-ssp-na-subscription-expired");
-        mapValue.put("emailAddress",emailAddress);
+        mapValue.put("templateId", templateName);
+        mapValue.put("emailAddress", emailAddress);
         Map<String, String> templateValues = new HashMap<>();
-        templateValues.put("COUNTRY_CODE",countryCode);
-        templateValues.put("LANGUAGE_CODE",languageCode);
-        templateValues.put("INDIVIDUAL_FIRST_NAME","TestUserFirstName");
-        templateValues.put("INDIVIDUAL_LAST_NAME","TestUserLastName");
-        templateValues.put("PASSCODE","123456");
+        templateValues.put("COUNTRY_CODE", countryCode);
+        templateValues.put("LANGUAGE_CODE", languageCode);
+        templateValues.put("INDIVIDUAL_FIRST_NAME", "TestUserFirstName");
+        templateValues.put("INDIVIDUAL_LAST_NAME", "TestUserLastName");
+        templateValues.put("PASSCODE", "123456");
         mapValue.put("templateValues", templateValues);
         return JsonHelper.convertToJsonStringFromMap(mapValue)
     }
