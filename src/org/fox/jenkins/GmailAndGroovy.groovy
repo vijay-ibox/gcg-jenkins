@@ -38,7 +38,6 @@ class GmailAndGroovy {
             FlagTerm unseenFlagTerm = new FlagTerm(seen, false);
             SearchTerm searchTermFlag = new FlagTerm(new Flags(Flags.Flag.SEEN), false);
             SearchTerm searchTermSubject = new SubjectTerm("Your access to Connected Services has expired");
-//            SearchTerm[] arr = new SearchTerm[]{searchTermFlag, searchTermSubject};
             SearchTerm[] arr = [searchTermFlag, searchTermSubject]
 ////searchTerm.match(searchTermFt);
             SearchTerm searchTerm = new AndTerm(arr);
@@ -54,10 +53,10 @@ class GmailAndGroovy {
                 responseValue.add("subject : " + msgVal.getSubject().toString())
                 msgVal.setFlag(Flags.Flag.SEEN, true)
             }
-            return "Success output" + responseValue.toString()
+            return "Success output " + responseValue.toString()
         } catch (e) {
             println(e.message)
         }
-        return "Failed output : " + responseValue.toString()
+        return "Failed output " + responseValue.toString()
     }
 }
