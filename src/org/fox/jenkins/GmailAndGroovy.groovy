@@ -24,7 +24,7 @@ class GmailAndGroovy {
         props.setProperty("mail.imap.host", host)
         props.setProperty("mail.imap.port", port)
         props.setProperty("mail.imap.ssl.enable", "true");
-        def responseValue = new ArrayList<>()
+        def responseValue = new HashMap<>();
         try {
         def session = Session.getDefaultInstance(props);
         def store = session.getStore("imaps")
@@ -49,9 +49,9 @@ class GmailAndGroovy {
         fetchProfile.add(FetchProfile.Item.ENVELOPE)
         folder.fetch(msgValue,fetchProfile)
         for ( msgVal in msgValue ) {
-            responseValue.add("receivedDate : " + msgVal.getReceivedDate().toString())
-            responseValue.add("from : " + msgVal.getFrom()[0].toString())
-            responseValue.add("subject : " + msgVal.getSubject().toString())
+            responseValue.put("receivedDate : " , msgVal.getReceivedDate().toString())
+            responseValue.put("from : " , msgVal.getFrom()[0].toString())
+            responseValue.put("subject : " , msgVal.getSubject().toString())
             msgVal.setFlag(Flags.Flag.SEEN, true)
         }
             return "Success output" + responseValue.toString()
