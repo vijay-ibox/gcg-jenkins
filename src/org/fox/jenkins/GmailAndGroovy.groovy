@@ -53,10 +53,10 @@ class GmailAndGroovy {
                 responseValue.add("subject : " + msgVal.getSubject().toString())
                 msgVal.setFlag(Flags.Flag.SEEN, true)
             }
-            return "Success output " + responseValue.toString()
+            return responseValue.toString()
         } catch (e) {
             println(e.message)
         }
-        return "Failed output " + responseValue.toString()
+        return responseValue.toString()
     }
 }
