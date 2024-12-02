@@ -1,8 +1,8 @@
 import org.fox.jenkins.GmailAndGroovy
 
-def call() {
+def call(String emailAddress, String emailPasscode) {
     def gmailAndGroovy = new GmailAndGroovy(this)
-    def responseOutput = gmailAndGroovy.readEmail()
+    def responseOutput = gmailAndGroovy.readEmail(emailAddress, emailPasscode)
     println("Response : ${responseOutput}")
     def valLength = responseOutput.length()
     println("Response length: ${valLength}")
